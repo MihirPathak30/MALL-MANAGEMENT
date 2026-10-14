@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 270 100% 99%;
+    --foreground: 270 15% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 270 15% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 15% 20%;
+
+    --primary: 270 70% 75%;
+    --primary-foreground: 270 15% 20%;
+
+    --secondary: 280 60% 85%;
+    --secondary-foreground: 270 15% 20%;
+
+    --muted: 270 40% 95%;
+    --muted-foreground: 270 10% 45%;
+
+    --accent: 260 80% 80%;
+    --accent-foreground: 270 15% 20%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 30% 90%;
+    --input: 270 30% 90%;
+    --ring: 270 70% 75%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --radius: 0.75rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(270 70% 85%), hsl(280 80% 90%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(270 50% 98%));
+    --gradient-accent: linear-gradient(135deg, hsl(260 80% 80%), hsl(270 70% 75%));
+    
+    --shadow-soft: 0 4px 20px -2px hsl(270 70% 75% / 0.15);
+    --shadow-medium: 0 8px 30px -4px hsl(270 70% 75% / 0.25);
+    --shadow-strong: 0 12px 40px -6px hsl(270 70% 75% / 0.35);
+
+    --sidebar-background: 270 60% 98%;
+    --sidebar-foreground: 270 15% 25%;
+    --sidebar-primary: 270 70% 75%;
+    --sidebar-primary-foreground: 270 15% 20%;
+    --sidebar-accent: 270 50% 95%;
+    --sidebar-accent-foreground: 270 15% 25%;
+    --sidebar-border: 270 30% 92%;
+    --sidebar-ring: 270 70% 75%;
+  }
+
+  .dark {
+    --background: 270 30% 8%;
+    --foreground: 270 20% 95%;
+
+    --card: 270 25% 12%;
+    --card-foreground: 270 20% 95%;
+
+    --popover: 270 25% 12%;
+    --popover-foreground: 270 20% 95%;
+
+    --primary: 270 70% 65%;
+    --primary-foreground: 270 20% 95%;
+
+    --secondary: 270 20% 20%;
+    --secondary-foreground: 270 20% 95%;
+
+    --muted: 270 20% 18%;
+    --muted-foreground: 270 15% 60%;
+
+    --accent: 260 60% 55%;
+    --accent-foreground: 270 20% 95%;
+
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 270 20% 95%;
+
+    --border: 270 20% 20%;
+    --input: 270 20% 20%;
+    --ring: 270 70% 65%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(270 60% 25%), hsl(280 70% 30%));
+    --gradient-card: linear-gradient(145deg, hsl(270 25% 12%), hsl(270 30% 15%));
+    --gradient-accent: linear-gradient(135deg, hsl(260 60% 35%), hsl(270 70% 40%));
+    
+    --shadow-soft: 0 4px 20px -2px hsl(270 70% 10% / 0.4);
+    --shadow-medium: 0 8px 30px -4px hsl(270 70% 10% / 0.5);
+    --shadow-strong: 0 12px 40px -6px hsl(270 70% 10% / 0.6);
+
+    --sidebar-background: 270 25% 10%;
+    --sidebar-foreground: 270 20% 90%;
+    --sidebar-primary: 270 70% 65%;
+    --sidebar-primary-foreground: 270 20% 95%;
+    --sidebar-accent: 270 20% 18%;
+    --sidebar-accent-foreground: 270 20% 90%;
+    --sidebar-border: 270 20% 20%;
+    --sidebar-ring: 270 70% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 32;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .shadow-strong {
+    box-shadow: var(--shadow-strong);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
